@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Effective python - My Docs</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Effective python";
+    var mkdocs_page_input_path = "booknotes/effective-python.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> My Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Book Note</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Effective python</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#effective-python">Effective python</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#pythonic-thinking">Pythonic thinking</a></li>
+        
+            <li><a class="toctree-l4" href="#functions">Functions</a></li>
+        
+            <li><a class="toctree-l4" href="#class">Class</a></li>
+        
+            <li><a class="toctree-l4" href="#concurrency">Concurrency</a></li>
+        
+            <li><a class="toctree-l4" href="#built-in-modules">built-in modules</a></li>
+        
+            <li><a class="toctree-l4" href="#collaboration">collaboration</a></li>
+        
+            <li><a class="toctree-l4" href="#production">production</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">My Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Book Note &raquo;</li>
+        
+      
+    
+    <li>Effective python</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="effective-python">Effective python</h1>
+<h2 id="pythonic-thinking">Pythonic thinking</h2>
+<h3 id="pep-8-style">PEP 8 style</h3>
+<p><a href="https://pep8.org/">PEP 8 style</a></p>
+<h3 id="helper-function">helper function</h3>
+<h3 id="bytes-str-and-unicode">bytes, str and unicode</h3>
+<h3 id="how-to-slice">how to slice</h3>
+<h3 id="dont-use-stride-with-startend">don't use stride with start/end</h3>
+<h3 id="list-comprehensions">list comprehensions</h3>
+<h3 id="use-generator-to-replace-big-list-comprehension">use generator to replace big list comprehension</h3>
+<h3 id="use-try-except-else-finally">use <em>try .. except &#x2026;. else &#x2026; finally</em></h3>
+<h3 id="use-enumerate-instead-of-range">use <em>enumerate</em> instead of <em>range</em></h3>
+<h3 id="use-zip-to-do-parallel-iteration">use zip to do parallel iteration</h3>
+<h2 id="functions">Functions</h2>
+<h3 id="dont-return-none-throw-exception">don't return <em>None</em>, throw exception</h3>
+<h3 id="scope-in-closure">scope in closure</h3>
+<h3 id="use-generator-to-replace-list-from-function-return">use generator to replace <em>list</em> from function return</h3>
+<h3 id="be-defensive-when-iterating-over-arguents">Be defensive when iterating over arguents</h3>
+<p>Define a class which includes <code>__iter__</code>, pass the object to function </p>
+<h3 id="variable-positional-arguents">Variable positional arguents</h3>
+<pre><code>def log(message, *values):
+  pass
+
+favorites = [7, 33, 99]
+log('Favorite colors', *favorites)
+</code></pre>
+<h3 id="provide-optional-behavior-with-keyword-arguments">provide optional behavior with keyword arguments</h3>
+<p>the sequence should be normal, positional, optional arguements </p>
+<h3 id="use-none-and-docstring-to-sepecify-dynamic-default-argumetns">Use NONE and docstring to sepecify dynamic default argumetns</h3>
+<pre><code>def decode(data, default=None):    
+  """Load JSON data from a string.
+      Args:    
+          data: JSON data to decode.
+          default: Value to return if decoding fails.
+              Defaults to an empty dictionary.
+      """
+      if default is None:
+          default = {}
+</code></pre>
+<h3 id="enforce-clarity-with-keyword-only-arguments">Enforce clarity with keyword-only arguments</h3>
+<p>Add <code>*</code> before keyword arguments, then it becomes keyword-only </p>
+<pre><code>def safe_division_c(number, divisor, *,
+                    ignore_overflow=False,
+                    ignore_zero_division=False):
+</code></pre>
+<h2 id="class">Class</h2>
+<h3 id="prefer-helper-clsses-over-dictionary-and-tuples">Prefer helper clsses over dictionary and tuples</h3>
+<p>Avoid doing dictionary nesting more than one level 
+Use <code>namedtuple</code> type </p>
+<pre><code>import collections
+Grade = collections.namedtuple('Grade', ('score', 'weight'))
+</code></pre>
+<h3 id="accept-functions-instead-of-classes">Accept functions instead of classes</h3>
+<p>Use <code>lambda</code> and closure 
+Function is first class object </p>
+<pre><code>class CountMissing(object):
+  def __init__(self):
+    self.added = 0
+
+ def __call__(self): # function
+   self.added += 1
+   return 0
+
+counter = CountMissing()  # counter is a function 
+result = defaultdict(couter, current)
+</code></pre>
+<h3 id="use-classmethodto-construct-objects-generically">Use =@classmethod=to construct objects generically</h3>
+<p>Map reduce example. 
+Add the creation funtion to the base class level </p>
+<pre><code class="python">    class InputData(object):
+      def read(self):
+        raise NotImplementedError       
+      @classmethod
+      def generate_inputs(cls, config):
+        raise NotImplementedError
+
+
+    class Worker(object):
+      def map(self):
+        raise NotImplementedError
+
+      def reduce(self, other)
+        raise NotImplementedError
+
+      @classmethod
+      def create_workers(cls, input_class, config):
+        workers = []
+        for input_data in input_class.generate_inputs(config):
+          workers.append(cls(input_data))  #cls =&gt; the sub-class itself 
+
+      # LineCountWorker, PathInputData are sub-classes 
+      workers = LineCountWorker.create_workers(PathInputData, config)
+</code></pre>
+
+<h3 id="initialize-parent-classes-with-super">Initialize parent classes with super</h3>
+<p>Avoid the subclass override the previous subclass, <code>super()</code> class only called once </p>
+<pre><code>class Goodway(TimeFive, PlusTwo):
+  def __init__(self, value):
+    super(Goodway, self).__init__(value)
+    # super().__init__(value) in python 3
+
+ret = Goodway(5) # order is defined in MRO
+</code></pre>
+<h3 id="use-multiple-inheritance-only-for-mix-in-utility-class">Use Multiple Inheritance only for mix-in utility class</h3>
+<h2 id="concurrency">Concurrency</h2>
+<h3 id="use-subprocess-to-manage-child-processes">Use <code>subprocess</code> to manage child processes</h3>
+<ul>
+<li>this makes python a good glue</li>
+<li>communicate() to run subproceses</li>
+<li>in python3, we could add timeout</li>
+</ul>
+<h3 id="use-threads-for-blocking-io-avoid-for-parallelsim">Use threads for blocking I/O. avoid for parallelsim</h3>
+<ul>
+<li>GIL, threading may causes program running longer !</li>
+<li>but if the call is IO bound, for example, system call, threading will</li>
+</ul>
+<p>help </p>
+<h2 id="built-in-modules">built-in modules</h2>
+<h3 id="define-function-decorators-with-functoolswraps">define function decorators with <code>functools.wraps</code></h3>
+<p>Decorators: run addional code before/after any calls  <br />
+Use <code>wraps</code> to make the function name unchanged   </p>
+<pre><code>def trace(func):
+   @wraps(func)
+   def wrapper(*args, **kwargs):
+      pass
+   return wrapper
+</code></pre>
+<h3 id="consider-contextlib-and-with-statement-for-reusable-try-behavior">consider <code>contextlib</code> and <code>with</code> statement for reusable try behavior</h3>
+<ul>
+<li>with == try/finally block</li>
+<li>enalbe your objects to <code>with</code> using <code>contextlib</code></li>
+<li>
+<p>simpler than adding <code>__enter__</code> <code>__exit__</code></p>
+<p>@contextmanager
+def debug_logging(level):
+   logger.setLevel(level)
+   try:
+      yield  # which with block execute 
+      # yield logger #if we wanna use as 
+   finally:
+      pass</p>
+</li>
+</ul>
+<h3 id="make-pickle-reliable-with-copyreg">make <code>pickle</code> reliable with <code>copyreg</code></h3>
+<ul>
+<li>
+<p>pickle.dump and pickle.load useful for saving game</p>
+<p>copyreg.pickle(GameState, pickle_game_state)</p>
+</li>
+<li>
+<p>stable import path</p>
+</li>
+</ul>
+<h3 id="use-datetime-instead-of-time">Use <code>datetime</code> instead of <code>TIME</code></h3>
+<h3 id="use-built-in-algorithm-and-data-structure">Use built-in algorithm and data structure</h3>
+<ul>
+<li><code>deque()</code></li>
+<li><code>OrderedDict</code></li>
+<li><code>defaultdict</code></li>
+<li><code>heapq</code>, <code>heappush</code>, <code>heappop</code></li>
+<li>=bisect<sub>left</sub>(x, 99999) binary serach</li>
+<li><code>itertools</code></li>
+</ul>
+<h2 id="collaboration">collaboration</h2>
+<h2 id="production">production</h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
