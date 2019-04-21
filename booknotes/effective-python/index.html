@@ -10,6 +10,7 @@
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Effective python - My Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
@@ -45,50 +46,323 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Book Note</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <a class="current" href="./">Effective python</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#effective-python">Effective python</a></li>
+	<ul class="tocbase current">
     
-        <ul>
-        
-            <li><a class="toctree-l4" href="#pythonic-thinking">Pythonic thinking</a></li>
-        
-            <li><a class="toctree-l4" href="#functions">Functions</a></li>
-        
-            <li><a class="toctree-l4" href="#class">Class</a></li>
-        
-            <li><a class="toctree-l4" href="#concurrency">Concurrency</a></li>
-        
-            <li><a class="toctree-l4" href="#built-in-modules">built-in modules</a></li>
-        
-            <li><a class="toctree-l4" href="#collaboration">collaboration</a></li>
-        
-            <li><a class="toctree-l4" href="#production">production</a></li>
-        
-        </ul>
     
+      
 
-    </ul>
-                </li>
-    </ul>
-	    </li>
+
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../..">Home</a>
+  </li>
+    
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">Book Note</p>
+  </li>
+
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
           
-        </ul>
+
+
+  
+    
+    <li class="navtree toctree-l2 page current">
+      <a class="current" href="./">
+        Effective python
+          <span class="toctree-expand"></span>
+      </a>
+    </li>
+    
+      
+
+
+
+  <li class="toctree-l2 current">
+    <ul class="subnav-l2 current">
+    
+      
+          
+
+  <li class="toctree-l3 current with-children">
+    <a href="#pythonic-thinking">
+      Pythonic thinking
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3 current">
+    <ul class="subnav-l3 current">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#pep-8-style">PEP 8 style</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#helper-function">helper function</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#bytes-str-and-unicode">bytes, str and unicode</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#how-to-slice">how to slice</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#dont-use-stride-with-startend">don't use stride with start/end</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#list-comprehensions">list comprehensions</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-generator-to-replace-big-list-comprehension">use generator to replace big list comprehension</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-try-except-else-finally">use try .. except &#x2026;. else &#x2026; finally</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-enumerate-instead-of-range">use enumerate instead of range</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-zip-to-do-parallel-iteration">use zip to do parallel iteration</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#functions">
+      Functions
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#dont-return-none-throw-exception">don't return None, throw exception</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#scope-in-closure">scope in closure</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-generator-to-replace-list-from-function-return">use generator to replace list from function return</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#be-defensive-when-iterating-over-arguents">Be defensive when iterating over arguents</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#variable-positional-arguents">Variable positional arguents</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#provide-optional-behavior-with-keyword-arguments">provide optional behavior with keyword arguments</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-none-and-docstring-to-sepecify-dynamic-default-argumetns">Use NONE and docstring to sepecify dynamic default argumetns</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#enforce-clarity-with-keyword-only-arguments">Enforce clarity with keyword-only arguments</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#class">
+      Class
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#prefer-helper-clsses-over-dictionary-and-tuples">Prefer helper clsses over dictionary and tuples</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#accept-functions-instead-of-classes">Accept functions instead of classes</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-classmethodto-construct-objects-generically">Use =@classmethod=to construct objects generically</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#initialize-parent-classes-with-super">Initialize parent classes with super</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-multiple-inheritance-only-for-mix-in-utility-class">Use Multiple Inheritance only for mix-in utility class</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#concurrency">
+      Concurrency
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-subprocess-to-manage-child-processes">Use subprocess to manage child processes</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-threads-for-blocking-io-avoid-for-parallelsim">Use threads for blocking I/O. avoid for parallelsim</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#built-in-modules">
+      built-in modules
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#define-function-decorators-with-functoolswraps">define function decorators with functools.wraps</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#consider-contextlib-and-with-statement-for-reusable-try-behavior">consider contextlib and with statement for reusable try behavior</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#make-pickle-reliable-with-copyreg">make pickle reliable with copyreg</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-datetime-instead-of-time">Use datetime instead of TIME</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#use-built-in-algorithm-and-data-structure">Use built-in algorithm and data structure</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#collaboration">collaboration</a>
+        </li>
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#production">production</a>
+        </li>
+    
+    </ul>
+  </li>
+
+
+  
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../cleancode/">Cleancode</a>
+  </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
       </div>
       &nbsp;
     </nav>
@@ -124,35 +398,35 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="effective-python">Effective python</h1>
-<h2 id="pythonic-thinking">Pythonic thinking</h2>
-<h3 id="pep-8-style">PEP 8 style</h3>
+                <h1 id="effective-python">Effective python<a class="headerlink" href="#effective-python" title="Permanent link">&para;</a></h1>
+<h2 id="pythonic-thinking">Pythonic thinking<a class="headerlink" href="#pythonic-thinking" title="Permanent link">&para;</a></h2>
+<h3 id="pep-8-style">PEP 8 style<a class="headerlink" href="#pep-8-style" title="Permanent link">&para;</a></h3>
 <p><a href="https://pep8.org/">PEP 8 style</a></p>
-<h3 id="helper-function">helper function</h3>
-<h3 id="bytes-str-and-unicode">bytes, str and unicode</h3>
-<h3 id="how-to-slice">how to slice</h3>
-<h3 id="dont-use-stride-with-startend">don't use stride with start/end</h3>
-<h3 id="list-comprehensions">list comprehensions</h3>
-<h3 id="use-generator-to-replace-big-list-comprehension">use generator to replace big list comprehension</h3>
-<h3 id="use-try-except-else-finally">use <em>try .. except &#x2026;. else &#x2026; finally</em></h3>
-<h3 id="use-enumerate-instead-of-range">use <em>enumerate</em> instead of <em>range</em></h3>
-<h3 id="use-zip-to-do-parallel-iteration">use zip to do parallel iteration</h3>
-<h2 id="functions">Functions</h2>
-<h3 id="dont-return-none-throw-exception">don't return <em>None</em>, throw exception</h3>
-<h3 id="scope-in-closure">scope in closure</h3>
-<h3 id="use-generator-to-replace-list-from-function-return">use generator to replace <em>list</em> from function return</h3>
-<h3 id="be-defensive-when-iterating-over-arguents">Be defensive when iterating over arguents</h3>
+<h3 id="helper-function">helper function<a class="headerlink" href="#helper-function" title="Permanent link">&para;</a></h3>
+<h3 id="bytes-str-and-unicode">bytes, str and unicode<a class="headerlink" href="#bytes-str-and-unicode" title="Permanent link">&para;</a></h3>
+<h3 id="how-to-slice">how to slice<a class="headerlink" href="#how-to-slice" title="Permanent link">&para;</a></h3>
+<h3 id="dont-use-stride-with-startend">don&rsquo;t use stride with start/end<a class="headerlink" href="#dont-use-stride-with-startend" title="Permanent link">&para;</a></h3>
+<h3 id="list-comprehensions">list comprehensions<a class="headerlink" href="#list-comprehensions" title="Permanent link">&para;</a></h3>
+<h3 id="use-generator-to-replace-big-list-comprehension">use generator to replace big list comprehension<a class="headerlink" href="#use-generator-to-replace-big-list-comprehension" title="Permanent link">&para;</a></h3>
+<h3 id="use-try-except-else-finally">use <em>try .. except &#x2026;. else &#x2026; finally</em><a class="headerlink" href="#use-try-except-else-finally" title="Permanent link">&para;</a></h3>
+<h3 id="use-enumerate-instead-of-range">use <em>enumerate</em> instead of <em>range</em><a class="headerlink" href="#use-enumerate-instead-of-range" title="Permanent link">&para;</a></h3>
+<h3 id="use-zip-to-do-parallel-iteration">use zip to do parallel iteration<a class="headerlink" href="#use-zip-to-do-parallel-iteration" title="Permanent link">&para;</a></h3>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<h3 id="dont-return-none-throw-exception">don&rsquo;t return <em>None</em>, throw exception<a class="headerlink" href="#dont-return-none-throw-exception" title="Permanent link">&para;</a></h3>
+<h3 id="scope-in-closure">scope in closure<a class="headerlink" href="#scope-in-closure" title="Permanent link">&para;</a></h3>
+<h3 id="use-generator-to-replace-list-from-function-return">use generator to replace <em>list</em> from function return<a class="headerlink" href="#use-generator-to-replace-list-from-function-return" title="Permanent link">&para;</a></h3>
+<h3 id="be-defensive-when-iterating-over-arguents">Be defensive when iterating over arguents<a class="headerlink" href="#be-defensive-when-iterating-over-arguents" title="Permanent link">&para;</a></h3>
 <p>Define a class which includes <code>__iter__</code>, pass the object to function </p>
-<h3 id="variable-positional-arguents">Variable positional arguents</h3>
+<h3 id="variable-positional-arguents">Variable positional arguents<a class="headerlink" href="#variable-positional-arguents" title="Permanent link">&para;</a></h3>
 <pre><code>def log(message, *values):
   pass
 
 favorites = [7, 33, 99]
 log('Favorite colors', *favorites)
 </code></pre>
-<h3 id="provide-optional-behavior-with-keyword-arguments">provide optional behavior with keyword arguments</h3>
+<h3 id="provide-optional-behavior-with-keyword-arguments">provide optional behavior with keyword arguments<a class="headerlink" href="#provide-optional-behavior-with-keyword-arguments" title="Permanent link">&para;</a></h3>
 <p>the sequence should be normal, positional, optional arguements </p>
-<h3 id="use-none-and-docstring-to-sepecify-dynamic-default-argumetns">Use NONE and docstring to sepecify dynamic default argumetns</h3>
+<h3 id="use-none-and-docstring-to-sepecify-dynamic-default-argumetns">Use NONE and docstring to sepecify dynamic default argumetns<a class="headerlink" href="#use-none-and-docstring-to-sepecify-dynamic-default-argumetns" title="Permanent link">&para;</a></h3>
 <pre><code>def decode(data, default=None):    
   """Load JSON data from a string.
       Args:    
@@ -163,20 +437,20 @@ log('Favorite colors', *favorites)
       if default is None:
           default = {}
 </code></pre>
-<h3 id="enforce-clarity-with-keyword-only-arguments">Enforce clarity with keyword-only arguments</h3>
+<h3 id="enforce-clarity-with-keyword-only-arguments">Enforce clarity with keyword-only arguments<a class="headerlink" href="#enforce-clarity-with-keyword-only-arguments" title="Permanent link">&para;</a></h3>
 <p>Add <code>*</code> before keyword arguments, then it becomes keyword-only </p>
 <pre><code>def safe_division_c(number, divisor, *,
                     ignore_overflow=False,
                     ignore_zero_division=False):
 </code></pre>
-<h2 id="class">Class</h2>
-<h3 id="prefer-helper-clsses-over-dictionary-and-tuples">Prefer helper clsses over dictionary and tuples</h3>
+<h2 id="class">Class<a class="headerlink" href="#class" title="Permanent link">&para;</a></h2>
+<h3 id="prefer-helper-clsses-over-dictionary-and-tuples">Prefer helper clsses over dictionary and tuples<a class="headerlink" href="#prefer-helper-clsses-over-dictionary-and-tuples" title="Permanent link">&para;</a></h3>
 <p>Avoid doing dictionary nesting more than one level 
 Use <code>namedtuple</code> type </p>
 <pre><code>import collections
 Grade = collections.namedtuple('Grade', ('score', 'weight'))
 </code></pre>
-<h3 id="accept-functions-instead-of-classes">Accept functions instead of classes</h3>
+<h3 id="accept-functions-instead-of-classes">Accept functions instead of classes<a class="headerlink" href="#accept-functions-instead-of-classes" title="Permanent link">&para;</a></h3>
 <p>Use <code>lambda</code> and closure 
 Function is first class object </p>
 <pre><code>class CountMissing(object):
@@ -190,7 +464,7 @@ Function is first class object </p>
 counter = CountMissing()  # counter is a function 
 result = defaultdict(couter, current)
 </code></pre>
-<h3 id="use-classmethodto-construct-objects-generically">Use =@classmethod=to construct objects generically</h3>
+<h3 id="use-classmethodto-construct-objects-generically">Use =@classmethod=to construct objects generically<a class="headerlink" href="#use-classmethodto-construct-objects-generically" title="Permanent link">&para;</a></h3>
 <p>Map reduce example. 
 Add the creation funtion to the base class level </p>
 <pre><code class="python">    class InputData(object):
@@ -218,7 +492,7 @@ Add the creation funtion to the base class level </p>
       workers = LineCountWorker.create_workers(PathInputData, config)
 </code></pre>
 
-<h3 id="initialize-parent-classes-with-super">Initialize parent classes with super</h3>
+<h3 id="initialize-parent-classes-with-super">Initialize parent classes with super<a class="headerlink" href="#initialize-parent-classes-with-super" title="Permanent link">&para;</a></h3>
 <p>Avoid the subclass override the previous subclass, <code>super()</code> class only called once </p>
 <pre><code>class Goodway(TimeFive, PlusTwo):
   def __init__(self, value):
@@ -227,22 +501,22 @@ Add the creation funtion to the base class level </p>
 
 ret = Goodway(5) # order is defined in MRO
 </code></pre>
-<h3 id="use-multiple-inheritance-only-for-mix-in-utility-class">Use Multiple Inheritance only for mix-in utility class</h3>
-<h2 id="concurrency">Concurrency</h2>
-<h3 id="use-subprocess-to-manage-child-processes">Use <code>subprocess</code> to manage child processes</h3>
+<h3 id="use-multiple-inheritance-only-for-mix-in-utility-class">Use Multiple Inheritance only for mix-in utility class<a class="headerlink" href="#use-multiple-inheritance-only-for-mix-in-utility-class" title="Permanent link">&para;</a></h3>
+<h2 id="concurrency">Concurrency<a class="headerlink" href="#concurrency" title="Permanent link">&para;</a></h2>
+<h3 id="use-subprocess-to-manage-child-processes">Use <code>subprocess</code> to manage child processes<a class="headerlink" href="#use-subprocess-to-manage-child-processes" title="Permanent link">&para;</a></h3>
 <ul>
 <li>this makes python a good glue</li>
 <li>communicate() to run subproceses</li>
 <li>in python3, we could add timeout</li>
 </ul>
-<h3 id="use-threads-for-blocking-io-avoid-for-parallelsim">Use threads for blocking I/O. avoid for parallelsim</h3>
+<h3 id="use-threads-for-blocking-io-avoid-for-parallelsim">Use threads for blocking I/O. avoid for parallelsim<a class="headerlink" href="#use-threads-for-blocking-io-avoid-for-parallelsim" title="Permanent link">&para;</a></h3>
 <ul>
 <li>GIL, threading may causes program running longer !</li>
 <li>but if the call is IO bound, for example, system call, threading will</li>
 </ul>
 <p>help </p>
-<h2 id="built-in-modules">built-in modules</h2>
-<h3 id="define-function-decorators-with-functoolswraps">define function decorators with <code>functools.wraps</code></h3>
+<h2 id="built-in-modules">built-in modules<a class="headerlink" href="#built-in-modules" title="Permanent link">&para;</a></h2>
+<h3 id="define-function-decorators-with-functoolswraps">define function decorators with <code>functools.wraps</code><a class="headerlink" href="#define-function-decorators-with-functoolswraps" title="Permanent link">&para;</a></h3>
 <p>Decorators: run addional code before/after any calls  <br />
 Use <code>wraps</code> to make the function name unchanged   </p>
 <pre><code>def trace(func):
@@ -251,7 +525,7 @@ Use <code>wraps</code> to make the function name unchanged   </p>
       pass
    return wrapper
 </code></pre>
-<h3 id="consider-contextlib-and-with-statement-for-reusable-try-behavior">consider <code>contextlib</code> and <code>with</code> statement for reusable try behavior</h3>
+<h3 id="consider-contextlib-and-with-statement-for-reusable-try-behavior">consider <code>contextlib</code> and <code>with</code> statement for reusable try behavior<a class="headerlink" href="#consider-contextlib-and-with-statement-for-reusable-try-behavior" title="Permanent link">&para;</a></h3>
 <ul>
 <li>with == try/finally block</li>
 <li>enalbe your objects to <code>with</code> using <code>contextlib</code></li>
@@ -267,7 +541,7 @@ def debug_logging(level):
       pass</p>
 </li>
 </ul>
-<h3 id="make-pickle-reliable-with-copyreg">make <code>pickle</code> reliable with <code>copyreg</code></h3>
+<h3 id="make-pickle-reliable-with-copyreg">make <code>pickle</code> reliable with <code>copyreg</code><a class="headerlink" href="#make-pickle-reliable-with-copyreg" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>pickle.dump and pickle.load useful for saving game</p>
@@ -277,8 +551,8 @@ def debug_logging(level):
 <p>stable import path</p>
 </li>
 </ul>
-<h3 id="use-datetime-instead-of-time">Use <code>datetime</code> instead of <code>TIME</code></h3>
-<h3 id="use-built-in-algorithm-and-data-structure">Use built-in algorithm and data structure</h3>
+<h3 id="use-datetime-instead-of-time">Use <code>datetime</code> instead of <code>TIME</code><a class="headerlink" href="#use-datetime-instead-of-time" title="Permanent link">&para;</a></h3>
+<h3 id="use-built-in-algorithm-and-data-structure">Use built-in algorithm and data structure<a class="headerlink" href="#use-built-in-algorithm-and-data-structure" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>deque()</code></li>
 <li><code>OrderedDict</code></li>
@@ -287,14 +561,16 @@ def debug_logging(level):
 <li>=bisect<sub>left</sub>(x, 99999) binary serach</li>
 <li><code>itertools</code></li>
 </ul>
-<h2 id="collaboration">collaboration</h2>
-<h2 id="production">production</h2>
+<h2 id="collaboration">collaboration<a class="headerlink" href="#collaboration" title="Permanent link">&para;</a></h2>
+<h2 id="production">production<a class="headerlink" href="#production" title="Permanent link">&para;</a></h2>
               
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../cleancode/" class="btn btn-neutral float-right" title="Cleancode">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -325,6 +601,8 @@ def debug_logging(level):
       
         <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../cleancode/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
