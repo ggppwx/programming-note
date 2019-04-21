@@ -1,0 +1,9 @@
+site_name: My Docs
+nav:
+  - Home: 'index.md'
+  - Book Note:
+      - Effective python: 'booknotes/effective-python.md'
+theme: readthedocs
+markdown_extensions:
+  - toc:
+      baselevel: 1
