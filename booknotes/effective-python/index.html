@@ -10,7 +10,6 @@
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Effective python - My Docs</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
@@ -46,323 +45,54 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="tocbase current">
-    
-    
-      
-
-
-  <li class="navtree toctree-l1 inactive">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../..">Home</a>
-  </li>
-    
-      
-  <li class="navtree toctree-l1 label">
-    <p class="caption">Book Note</p>
-  </li>
-
-
-  
-
-  
-    <li class="navtree toctree-l1 group">
-      <ul class="navtree subnav-l1 current">
+	    </li>
           
-
-
-  
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Book Note</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Effective python</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#effective-python">Effective python</a></li>
     
-    <li class="navtree toctree-l2 page current">
-      <a class="current" href="./">
-        Effective python
-          <span class="toctree-expand"></span>
-      </a>
-    </li>
-    
-      
-
-
-
-  <li class="toctree-l2 current">
-    <ul class="subnav-l2 current">
-    
-      
-          
-
-  <li class="toctree-l3 current with-children">
-    <a href="#pythonic-thinking">
-      Pythonic thinking
-      <span class="toctree-expand"></span>
-    </a>
-  </li>
-
-
-
-  <li class="toctree-l3 current">
-    <ul class="subnav-l3 current">
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#pep-8-style">PEP 8 style</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#helper-function">helper function</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#bytes-str-and-unicode">bytes, str and unicode</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#how-to-slice">how to slice</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#dont-use-stride-with-startend">don't use stride with start/end</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#list-comprehensions">list comprehensions</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-generator-to-replace-big-list-comprehension">use generator to replace big list comprehension</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-try-except-else-finally">use try .. except &#x2026;. else &#x2026; finally</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-enumerate-instead-of-range">use enumerate instead of range</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-zip-to-do-parallel-iteration">use zip to do parallel iteration</a>
-        </li>
-    
-    </ul>
-  </li>
-
-      
-    
-      
-          
-
-  <li class="toctree-l3">
-    <a href="#functions">
-      Functions
-      <span class="toctree-expand"></span>
-    </a>
-  </li>
-
-
-
-  <li class="toctree-l3">
-    <ul class="subnav-l3 toc-hidden">
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#dont-return-none-throw-exception">don't return None, throw exception</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#scope-in-closure">scope in closure</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-generator-to-replace-list-from-function-return">use generator to replace list from function return</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#be-defensive-when-iterating-over-arguents">Be defensive when iterating over arguents</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#variable-positional-arguents">Variable positional arguents</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#provide-optional-behavior-with-keyword-arguments">provide optional behavior with keyword arguments</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-none-and-docstring-to-sepecify-dynamic-default-argumetns">Use NONE and docstring to sepecify dynamic default argumetns</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#enforce-clarity-with-keyword-only-arguments">Enforce clarity with keyword-only arguments</a>
-        </li>
-    
-    </ul>
-  </li>
-
-      
-    
-      
-          
-
-  <li class="toctree-l3">
-    <a href="#class">
-      Class
-      <span class="toctree-expand"></span>
-    </a>
-  </li>
-
-
-
-  <li class="toctree-l3">
-    <ul class="subnav-l3 toc-hidden">
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#prefer-helper-clsses-over-dictionary-and-tuples">Prefer helper clsses over dictionary and tuples</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#accept-functions-instead-of-classes">Accept functions instead of classes</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-classmethodto-construct-objects-generically">Use =@classmethod=to construct objects generically</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#initialize-parent-classes-with-super">Initialize parent classes with super</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-multiple-inheritance-only-for-mix-in-utility-class">Use Multiple Inheritance only for mix-in utility class</a>
-        </li>
-    
-    </ul>
-  </li>
-
-      
-    
-      
-          
-
-  <li class="toctree-l3">
-    <a href="#concurrency">
-      Concurrency
-      <span class="toctree-expand"></span>
-    </a>
-  </li>
-
-
-
-  <li class="toctree-l3">
-    <ul class="subnav-l3 toc-hidden">
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-subprocess-to-manage-child-processes">Use subprocess to manage child processes</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-threads-for-blocking-io-avoid-for-parallelsim">Use threads for blocking I/O. avoid for parallelsim</a>
-        </li>
-    
-    </ul>
-  </li>
-
-      
-    
-      
-          
-
-  <li class="toctree-l3">
-    <a href="#built-in-modules">
-      built-in modules
-      <span class="toctree-expand"></span>
-    </a>
-  </li>
-
-
-
-  <li class="toctree-l3">
-    <ul class="subnav-l3 toc-hidden">
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#define-function-decorators-with-functoolswraps">define function decorators with functools.wraps</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#consider-contextlib-and-with-statement-for-reusable-try-behavior">consider contextlib and with statement for reusable try behavior</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#make-pickle-reliable-with-copyreg">make pickle reliable with copyreg</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-datetime-instead-of-time">Use datetime instead of TIME</a>
-        </li>
-    
-      
-        <li class="toctree-l4">
-          <a class="toctree-l5" href="#use-built-in-algorithm-and-data-structure">Use built-in algorithm and data structure</a>
-        </li>
-    
-    </ul>
-  </li>
-
-      
-    
-      
-        <li class="toctree-l3">
-          <a class="toctree-l4" href="#collaboration">collaboration</a>
-        </li>
-    
-      
-        <li class="toctree-l3">
-          <a class="toctree-l4" href="#production">production</a>
-        </li>
-    
-    </ul>
-  </li>
-
-
-  
+        <ul>
         
-          
+            <li><a class="toctree-l4" href="#pythonic-thinking">Pythonic thinking</a></li>
+        
+            <li><a class="toctree-l4" href="#functions">Functions</a></li>
+        
+            <li><a class="toctree-l4" href="#class">Class</a></li>
+        
+            <li><a class="toctree-l4" href="#concurrency">Concurrency</a></li>
+        
+            <li><a class="toctree-l4" href="#built-in-modules">built-in modules</a></li>
+        
+            <li><a class="toctree-l4" href="#collaboration">collaboration</a></li>
+        
+            <li><a class="toctree-l4" href="#production">production</a></li>
+        
+        </ul>
+    
 
-
-  <li class="navtree toctree-l2 inactive">
+    </ul>
+                </li>
+                <li class="">
+                    
     <a class="" href="../cleancode/">Cleancode</a>
-  </li>
-        
-      </ul>
-    </li>
-    
-  </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
       </div>
       &nbsp;
     </nav>
