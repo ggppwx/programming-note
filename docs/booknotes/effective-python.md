@@ -68,12 +68,13 @@ Define a class which includes `__iter__`, pass the object to function
 
 ### Variable positional arguents ###
 
-    def log(message, *values):
+``` ptyhon
+def log(message, *values):
       pass
     
     favorites = [7, 33, 99]
     log('Favorite colors', *favorites)
-
+```
 
 
 
@@ -85,7 +86,7 @@ the sequence should be normal, positional, optional arguements
 
 
 ### Use NONE and docstring to sepecify dynamic default argumetns ###
-
+```python
     def decode(data, default=None):    
       """Load JSON data from a string.
           Args:    
@@ -95,18 +96,17 @@ the sequence should be normal, positional, optional arguements
           """
           if default is None:
               default = {}     
-
-
+```
 
 
 ### Enforce clarity with keyword-only arguments ###
 
 Add `*` before keyword arguments, then it becomes keyword-only 
-
+```python
     def safe_division_c(number, divisor, *,
                         ignore_overflow=False,
                         ignore_zero_division=False):
-
+```
 
 
 
@@ -117,17 +117,17 @@ Add `*` before keyword arguments, then it becomes keyword-only
 
 Avoid doing dictionary nesting more than one level 
 Use `namedtuple` type 
-
+```python
     import collections
     Grade = collections.namedtuple('Grade', ('score', 'weight'))
-
+```
 
 
 ### Accept functions instead of classes ###
 
 Use `lambda` and closure 
 Function is first class object 
-
+```python
     class CountMissing(object):
       def __init__(self):
         self.added = 0
@@ -138,7 +138,7 @@ Function is first class object
     
     counter = CountMissing()  # counter is a function 
     result = defaultdict(couter, current) 
-
+```
 
 
 ### Use =@classmethod=to construct objects generically ###
@@ -174,14 +174,14 @@ Add the creation funtion to the base class level
 ### Initialize parent classes with super ###
 
 Avoid the subclass override the previous subclass, `super()` class only called once 
-
+```python
     class Goodway(TimeFive, PlusTwo):
       def __init__(self, value):
         super(Goodway, self).__init__(value)
         # super().__init__(value) in python 3 
     
     ret = Goodway(5) # order is defined in MRO 
-
+```
 
 
 ### Use Multiple Inheritance only for mix-in utility class ###
@@ -218,13 +218,13 @@ help
 
 Decorators: run addional code before/after any calls    
 Use `wraps` to make the function name unchanged   
-
+```python
     def trace(func):
        @wraps(func)
        def wrapper(*args, **kwargs):
           pass
        return wrapper
-
+```
 
 
 ### consider `contextlib` and `with` statement for reusable try behavior ###
@@ -232,7 +232,7 @@ Use `wraps` to make the function name unchanged
 -   with == try/finally block
 -   enalbe your objects to `with` using `contextlib`
 -   simpler than adding `__enter__` `__exit__`
-
+```python
     @contextmanager
     def debug_logging(level):
        logger.setLevel(level)
@@ -241,7 +241,7 @@ Use `wraps` to make the function name unchanged
           # yield logger #if we wanna use as 
        finally:
           pass
-
+```
 
 
 

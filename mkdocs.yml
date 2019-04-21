@@ -4,7 +4,7 @@ nav:
   - Book Note:
       - Effective python: 'booknotes/effective-python.md'
       - Cleancode: 'booknotes/cleancode.md'
-theme: rtd-dropdown
+theme: readthedocs
 markdown_extensions:
   - smarty
   - toc:
