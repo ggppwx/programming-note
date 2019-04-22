@@ -60,7 +60,6 @@
 
 
 ### Be defensive when iterating over arguents ###
-
 Define a class which includes `__iter__`, pass the object to function 
 
 
@@ -114,7 +113,6 @@ Add `*` before keyword arguments, then it becomes keyword-only
 
 
 ### Prefer helper clsses over dictionary and tuples ###
-
 Avoid doing dictionary nesting more than one level 
 Use `namedtuple` type 
 ```python
@@ -141,8 +139,7 @@ Function is first class object
 ```
 
 
-### Use =@classmethod=to construct objects generically ###
-
+### Use `@classmethod` to construct objects generically ###
 Map reduce example. 
 Add the creation funtion to the base class level 
 ```python
@@ -172,7 +169,6 @@ Add the creation funtion to the base class level
 ```
 
 ### Initialize parent classes with super ###
-
 Avoid the subclass override the previous subclass, `super()` class only called once 
 ```python
     class Goodway(TimeFive, PlusTwo):
@@ -193,29 +189,80 @@ Avoid the subclass override the previous subclass, `super()` class only called o
 
 
 ### Use `subprocess` to manage child processes ###
-
 -   this makes python a good glue
--   communicate() to run subproceses
+-   communicate() to run subproceses, that could utilize the CPU 
 -   in python3, we could add timeout
 
 
 
 
 ### Use threads for blocking I/O. avoid for parallelsim ###
-
 -   GIL, threading may causes program running longer !
--   but if the call is IO bound, for example, system call, threading will
+-   but if the call is IO bound, for example, system call, threading will help 
+```python
+class MyThread(Thread):
+  def run(self):
+    pass
+    
+    
+t = MyThread()
+t.start() # run threads
+t.join() # wait threads 
+```
 
-help 
+### Use `lock` to prevent data race 
 
+### Use `Queue` to COORDINATE WORK BETWEEN THREADS
+The `Queue` class from `queue` module provides thread-safe approache. 
+Need to be aware of problem building pipline. busy waiting, stopping workers, memory explosion. 
+```python
+in_queue = Queue()
+def consumer():
+    work = in_queue.get()
+    # doing the work
+    in_queue.task_done() # eliminate the need for polling done_queue 
 
+Thread(target=consumer).start()
 
-## built-in modules ##
+in_queue.put(object())
+in_queue.join() # waiting in_queue to finish 
+```
 
+### CONSIDER COROUTINES TO RUN MANY FUNCTIONS CONCURRENTLY
+- Threads require a lot of memory 
+- need special tools like `lock`
+- costly to start   
+
+```python
+def minimize():
+  current = yield
+  while True:
+    value = yield current # return current 
+    current = min(current, value)
+    
+it = minimize()
+next(it)
+it.send(10)
+it.send(15)
+```
+
+### consider `concurrent.futures` for true parallelsim
+Because GIL, you may hit performance wall 
+we could use `multiprocessing` module
+```python
+def gcd(pair):
+  # some operations
+  pass 
+  
+pool = ProcessPoolExecutor(max_workers=2)
+pool.map(gcd, numbers) # gcd(number_pair)
+
+```
+
+## built-in modules
 
 
 ### define function decorators with `functools.wraps` ###
-
 Decorators: run addional code before/after any calls    
 Use `wraps` to make the function name unchanged   
 ```python
@@ -272,7 +319,68 @@ Use `wraps` to make the function name unchanged
 
 
 ## collaboration ##
+### Write docstrings for class, function, module 
+```python
+""" Libarary for XXXX
+Module level docs 
 
+"""
+class Player(ojbect):
+  """ class level docs 
+  Public attributes:
+  - a: what a is ...
+  - b: what b is ... 
+  """
+  
+  def find_args():
+      """ Function description
+      Args:
+          a: what a is 
+      Returns:
+          what the return is       
+      """
+```
+
+### Use packages to organize modules 
+Package structure
+```
+main.py
+mypackage/__init__.py
+mypackage/models.py
+mypackage/utils.py
+
+```
+
+Exposese some funtions in API
+```python
+# modules.py
+__all__ = ['function']
+def fucntion(a):
+    pass
+```
+
+### Define a root `exception` to insulate callers from API
+```python
+class Error(Exception):
+    """Base class for all exceptions raised by this module"""
+    
+class SomeRealError(Error):
+    pass
+    
+    
+```
+
+### Use virtual environment 
+Use `pip3`, Use virtual environment
+```
+pyvenv /dir/to/project
+cd /dir/to/project
+source /bin/activate
+
+pip3 install -r requiremets.txt
+
+deactivate
+```
 
 
 
