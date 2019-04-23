@@ -303,8 +303,11 @@ Use `wraps` to make the function name unchanged
 
 
 ### Use `datetime` instead of `TIME` ###
-
-
+```python
+eastern = pytz.timezone('US/Eastern')
+nyc_dt = eastern.localize(nyc_dt_native)
+utc_dt = pytz.utc.normalize(nyc_dt.astimezone(pytz.utc))
+```
 
 
 ### Use built-in algorithm and data structure ###
@@ -385,4 +388,66 @@ deactivate
 
 
 ## production ##
+### Consider module-scoped code to configure deployment environment
+```python
+# dev_main.py
+TESTING = True
+```
+```python
+# prod_main.py
+TESTING = False
+```
+```python
+import __main__
+if __main__.TESTING:
+   # use testing settingss 
 
+```
+
+### Use `repr` strings for debug output 
+Always use `repr` version of the object when debug print 
+```python
+pirnt(repr(a))
+print(obj.__dict__)
+
+
+class Someclass(object):
+    def __repr__(self):
+        return 'output you want '        
+```
+
+### Test everything with unittest
+- the only way to have confidence in program is to write tests 
+- unit-test for isolated functionality, integration tests for modules that interact 
+
+### Use `pdb` to debug
+Add pdb to the code 
+```python
+def complex_func():
+   import pdb; pdb.set_trace() # this is like set break point 
+```
+
+
+### profile before optimizing 
+Run `cProfile` module 
+```python
+profiler = Profile()
+profiler.runcall(test)
+
+
+stats = Stats(profiler)
+stats.print_stats()
+
+stats.print_callers()
+
+```
+
+
+### Use `tracemalloc` to understand memory usage
+```python
+time1 = tracemalloc.take_snapshot()
+.....
+time2 = tracemalloc.take_snapshot()
+stats = time2.compare_to(time1, 'lineno')
+
+```
