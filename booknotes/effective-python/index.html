@@ -199,7 +199,7 @@ Function is first class object </p>
     result = defaultdict(couter, current) 
 </code></pre>
 
-<h3 id="use-classmethodto-construct-objects-generically">Use =@classmethod=to construct objects generically<a class="headerlink" href="#use-classmethodto-construct-objects-generically" title="Permanent link">&para;</a></h3>
+<h3 id="use-classmethod-to-construct-objects-generically">Use <code>@classmethod</code> to construct objects generically<a class="headerlink" href="#use-classmethod-to-construct-objects-generically" title="Permanent link">&para;</a></h3>
 <p>Map reduce example. 
 Add the creation funtion to the base class level </p>
 <pre><code class="python">    class InputData(object):
@@ -242,15 +242,70 @@ Add the creation funtion to the base class level </p>
 <h3 id="use-subprocess-to-manage-child-processes">Use <code>subprocess</code> to manage child processes<a class="headerlink" href="#use-subprocess-to-manage-child-processes" title="Permanent link">&para;</a></h3>
 <ul>
 <li>this makes python a good glue</li>
-<li>communicate() to run subproceses</li>
+<li>communicate() to run subproceses, that could utilize the CPU </li>
 <li>in python3, we could add timeout</li>
 </ul>
 <h3 id="use-threads-for-blocking-io-avoid-for-parallelsim">Use threads for blocking I/O. avoid for parallelsim<a class="headerlink" href="#use-threads-for-blocking-io-avoid-for-parallelsim" title="Permanent link">&para;</a></h3>
 <ul>
 <li>GIL, threading may causes program running longer !</li>
-<li>but if the call is IO bound, for example, system call, threading will</li>
+<li>but if the call is IO bound, for example, system call, threading will help </li>
 </ul>
-<p>help </p>
+<pre><code class="python">class MyThread(Thread):
+  def run(self):
+    pass
+
+
+t = MyThread()
+t.start() # run threads
+t.join() # wait threads 
+</code></pre>
+
+<h3 id="use-lock-to-prevent-data-race">Use <code>lock</code> to prevent data race<a class="headerlink" href="#use-lock-to-prevent-data-race" title="Permanent link">&para;</a></h3>
+<h3 id="use-queue-to-coordinate-work-between-threads">Use <code>Queue</code> to COORDINATE WORK BETWEEN THREADS<a class="headerlink" href="#use-queue-to-coordinate-work-between-threads" title="Permanent link">&para;</a></h3>
+<p>The <code>Queue</code> class from <code>queue</code> module provides thread-safe approache. 
+Need to be aware of problem building pipline. busy waiting, stopping workers, memory explosion. </p>
+<pre><code class="python">in_queue = Queue()
+def consumer():
+    work = in_queue.get()
+    # doing the work
+    in_queue.task_done() # eliminate the need for polling done_queue 
+
+Thread(target=consumer).start()
+
+in_queue.put(object())
+in_queue.join() # waiting in_queue to finish 
+</code></pre>
+
+<h3 id="consider-coroutines-to-run-many-functions-concurrently">CONSIDER COROUTINES TO RUN MANY FUNCTIONS CONCURRENTLY<a class="headerlink" href="#consider-coroutines-to-run-many-functions-concurrently" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Threads require a lot of memory </li>
+<li>need special tools like <code>lock</code></li>
+<li>costly to start   </li>
+</ul>
+<pre><code class="python">def minimize():
+  current = yield
+  while True:
+    value = yield current # return current 
+    current = min(current, value)
+
+it = minimize()
+next(it)
+it.send(10)
+it.send(15)
+</code></pre>
+
+<h3 id="consider-concurrentfutures-for-true-parallelsim">consider <code>concurrent.futures</code> for true parallelsim<a class="headerlink" href="#consider-concurrentfutures-for-true-parallelsim" title="Permanent link">&para;</a></h3>
+<p>Because GIL, you may hit performance wall 
+we could use <code>multiprocessing</code> module</p>
+<pre><code class="python">def gcd(pair):
+  # some operations
+  pass 
+
+pool = ProcessPoolExecutor(max_workers=2)
+pool.map(gcd, numbers) # gcd(number_pair)
+
+</code></pre>
+
 <h2 id="built-in-modules">built-in modules<a class="headerlink" href="#built-in-modules" title="Permanent link">&para;</a></h2>
 <h3 id="define-function-decorators-with-functoolswraps">define function decorators with <code>functools.wraps</code><a class="headerlink" href="#define-function-decorators-with-functoolswraps" title="Permanent link">&para;</a></h3>
 <p>Decorators: run addional code before/after any calls  <br />
@@ -289,6 +344,11 @@ Use <code>wraps</code> to make the function name unchanged   </p>
 </li>
 </ul>
 <h3 id="use-datetime-instead-of-time">Use <code>datetime</code> instead of <code>TIME</code><a class="headerlink" href="#use-datetime-instead-of-time" title="Permanent link">&para;</a></h3>
+<pre><code class="python">eastern = pytz.timezone('US/Eastern')
+nyc_dt = eastern.localize(nyc_dt_native)
+utc_dt = pytz.utc.normalize(nyc_dt.astimezone(pytz.utc))
+</code></pre>
+
 <h3 id="use-built-in-algorithm-and-data-structure">Use built-in algorithm and data structure<a class="headerlink" href="#use-built-in-algorithm-and-data-structure" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>deque()</code></li>
@@ -299,7 +359,122 @@ Use <code>wraps</code> to make the function name unchanged   </p>
 <li><code>itertools</code></li>
 </ul>
 <h2 id="collaboration">collaboration<a class="headerlink" href="#collaboration" title="Permanent link">&para;</a></h2>
+<h3 id="write-docstrings-for-class-function-module">Write docstrings for class, function, module<a class="headerlink" href="#write-docstrings-for-class-function-module" title="Permanent link">&para;</a></h3>
+<pre><code class="python">&quot;&quot;&quot; Libarary for XXXX
+Module level docs 
+
+&quot;&quot;&quot;
+class Player(ojbect):
+  &quot;&quot;&quot; class level docs 
+  Public attributes:
+  - a: what a is ...
+  - b: what b is ... 
+  &quot;&quot;&quot;
+
+  def find_args():
+      &quot;&quot;&quot; Function description
+      Args:
+          a: what a is 
+      Returns:
+          what the return is       
+      &quot;&quot;&quot;
+</code></pre>
+
+<h3 id="use-packages-to-organize-modules">Use packages to organize modules<a class="headerlink" href="#use-packages-to-organize-modules" title="Permanent link">&para;</a></h3>
+<p>Package structure</p>
+<pre><code>main.py
+mypackage/__init__.py
+mypackage/models.py
+mypackage/utils.py
+
+</code></pre>
+
+<p>Exposese some funtions in API</p>
+<pre><code class="python"># modules.py
+__all__ = ['function']
+def fucntion(a):
+    pass
+</code></pre>
+
+<h3 id="define-a-root-exception-to-insulate-callers-from-api">Define a root <code>exception</code> to insulate callers from API<a class="headerlink" href="#define-a-root-exception-to-insulate-callers-from-api" title="Permanent link">&para;</a></h3>
+<pre><code class="python">class Error(Exception):
+    &quot;&quot;&quot;Base class for all exceptions raised by this module&quot;&quot;&quot;
+
+class SomeRealError(Error):
+    pass
+
+
+</code></pre>
+
+<h3 id="use-virtual-environment">Use virtual environment<a class="headerlink" href="#use-virtual-environment" title="Permanent link">&para;</a></h3>
+<p>Use <code>pip3</code>, Use virtual environment</p>
+<pre><code>pyvenv /dir/to/project
+cd /dir/to/project
+source /bin/activate
+
+pip3 install -r requiremets.txt
+
+deactivate
+</code></pre>
+
 <h2 id="production">production<a class="headerlink" href="#production" title="Permanent link">&para;</a></h2>
+<h3 id="consider-module-scoped-code-to-configure-deployment-environment">Consider module-scoped code to configure deployment environment<a class="headerlink" href="#consider-module-scoped-code-to-configure-deployment-environment" title="Permanent link">&para;</a></h3>
+<pre><code class="python"># dev_main.py
+TESTING = True
+</code></pre>
+
+<pre><code class="python"># prod_main.py
+TESTING = False
+</code></pre>
+
+<pre><code class="python">import __main__
+if __main__.TESTING:
+   # use testing settingss 
+
+</code></pre>
+
+<h3 id="use-repr-strings-for-debug-output">Use <code>repr</code> strings for debug output<a class="headerlink" href="#use-repr-strings-for-debug-output" title="Permanent link">&para;</a></h3>
+<p>Always use <code>repr</code> version of the object when debug print </p>
+<pre><code class="python">pirnt(repr(a))
+print(obj.__dict__)
+
+
+class Someclass(object):
+    def __repr__(self):
+        return 'output you want '        
+</code></pre>
+
+<h3 id="test-everything-with-unittest">Test everything with unittest<a class="headerlink" href="#test-everything-with-unittest" title="Permanent link">&para;</a></h3>
+<ul>
+<li>the only way to have confidence in program is to write tests </li>
+<li>unit-test for isolated functionality, integration tests for modules that interact </li>
+</ul>
+<h3 id="use-pdb-to-debug">Use <code>pdb</code> to debug<a class="headerlink" href="#use-pdb-to-debug" title="Permanent link">&para;</a></h3>
+<p>Add pdb to the code </p>
+<pre><code class="python">def complex_func():
+   import pdb; pdb.set_trace() # this is like set break point 
+</code></pre>
+
+<h3 id="profile-before-optimizing">profile before optimizing<a class="headerlink" href="#profile-before-optimizing" title="Permanent link">&para;</a></h3>
+<p>Run <code>cProfile</code> module </p>
+<pre><code class="python">profiler = Profile()
+profiler.runcall(test)
+
+
+stats = Stats(profiler)
+stats.print_stats()
+
+stats.print_callers()
+
+</code></pre>
+
+<h3 id="use-tracemalloc-to-understand-memory-usage">Use <code>tracemalloc</code> to understand memory usage<a class="headerlink" href="#use-tracemalloc-to-understand-memory-usage" title="Permanent link">&para;</a></h3>
+<pre><code class="python">time1 = tracemalloc.take_snapshot()
+.....
+time2 = tracemalloc.take_snapshot()
+stats = time2.compare_to(time1, 'lineno')
+
+</code></pre>
               
             </div>
           </div>
